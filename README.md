@@ -1,1 +1,6 @@
 # tutorial-11-advprog
+
+## Reflection
+1. The logs seems to display the pod's activity. At first, there were only two logs, one telling us that an HTTP Server has been started on port 8080, another one telling us that an UDP Server has been started on port 8081. Then, I started the hello-node service, automatically opening up a tab on my web browser and navigating to `127.0.0.1:53610`. After that, the number of logs seems to increment by the number of HTTP requests I sent to `127.0.0.1:53610`. This also explains why navigating to `127.0.0.1:53610` adds more logs, since navigating to a certain URL using a web browser essentially sends an HTTP GET request to the URL's endpoint.
+
+2. The `-n` is closely related to namespaces. In Kubernetes, namespaces provide a mechanism for isolating groups of resources within a single cluster. The `-n` flag, short to the flag `--namespace`, is used to specify the namespace for the current request. Since the pods and services I've created implicitly gets assigned to the `default` namespace, invoking `kubectl get pods` with `-n kube-system` option will display the pods belonging to the `kube-system` namespace while hiding the pods/services not belonging to it.
